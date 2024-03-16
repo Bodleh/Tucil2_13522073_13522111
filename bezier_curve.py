@@ -1,7 +1,12 @@
-def midpoint(p1, p2):
+from typing import Tuple, List
+
+def midpoint(p1: Tuple[int, int], p2: Tuple[int, int]) -> Tuple[int, int]:
     return ((p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2)
 
-def bezier_divide_and_conquer(control_points, iterations):
+def bezier_divide_and_conquer(
+    control_points: List[Tuple[int, int]], 
+    iterations: int
+) -> List[Tuple[int, int]]:
     if iterations == 0:
         return [control_points[0], control_points[-1]]
     
@@ -20,7 +25,11 @@ def bezier_divide_and_conquer(control_points, iterations):
     
     return first_half_bezier + second_half_bezier[1:]
 
-def bezier_divide_and_conquer_animate(control_points, iterations, all_midpoints=None):
+def bezier_divide_and_conquer_animate(
+    control_points: List[Tuple[int, int]], 
+    iterations: int, 
+    all_midpoints: List[List[List[Tuple[int, int]]]] | None = None
+) -> Tuple[List[Tuple[int, int]], List[List[List[Tuple[int, int]]]]]:
     if all_midpoints is None:
         all_midpoints = []
 
