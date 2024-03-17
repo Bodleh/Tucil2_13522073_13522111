@@ -10,15 +10,15 @@ def bezier_divide_and_conquer(
     if iterations == 0:
         return [control_points[0], control_points[-1]]
     
-    all_mid = [control_points]
+    first_half = [control_points[0]]
+    second_half = [control_points[-1]]
     n = len(control_points)
     while n > 1:
-        midpoints = [midpoint(all_mid[-1][i], all_mid[-1][i + 1]) for i in range(len(all_mid[-1]) - 1)]
-        all_mid.append(midpoints)
+        midpoints = [midpoint(control_points[i], control_points[i + 1]) for i in range(len(control_points) - 1)]
+        control_points = midpoints
+        first_half.append(midpoints[0])
+        second_half = [midpoints[-1]] + second_half
         n -= 1
-
-    first_half = [all_mid[i][0] for i in range(len(all_mid))]
-    second_half = [all_mid[i][-1] for i in range(len(all_mid) - 1, -1, -1)]
     
     first_half_bezier = bezier_divide_and_conquer(first_half, iterations - 1)
     second_half_bezier = bezier_divide_and_conquer(second_half, iterations - 1)
@@ -37,14 +37,16 @@ def bezier_divide_and_conquer_animate(
         return [control_points[0], control_points[-1]], all_midpoints
     
     all_mid = [control_points]
+    first_half = [control_points[0]]
+    second_half = [control_points[-1]]
     n = len(control_points)
     while n > 1:
-        midpoints = [midpoint(all_mid[-1][i], all_mid[-1][i + 1]) for i in range(len(all_mid[-1]) - 1)]
+        midpoints = [midpoint(control_points[i], control_points[i + 1]) for i in range(len(control_points) - 1)]
         all_mid.append(midpoints)
+        control_points = midpoints
+        first_half.append(midpoints[0])
+        second_half = [midpoints[-1]] + second_half
         n -= 1
-
-    first_half = [all_mid[i][0] for i in range(len(all_mid))]
-    second_half = [all_mid[i][-1] for i in range(len(all_mid) - 1, -1, -1)]
     
     all_midpoints.append(all_mid)
 

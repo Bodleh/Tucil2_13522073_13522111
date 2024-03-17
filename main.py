@@ -55,7 +55,7 @@ def update(frame):
         ax.plot(x, y, color='black', label='Bézier Curve')
         ax.legend()
 
-    ax.set_title(f"Bézier Curve (Divide and Conquer)\nProcess Time: {end:.2f} ms\nAnimating > 4 iterations may take time.")
+    ax.set_title(f"Bézier Curve (Divide and Conquer)\nProcess Time: {end:.2f} ms\nAnimating > 4 iterations may take times.")
 
 fig, ax = plt.subplots()
 total_frames = sum(len(levels) for levels in midpoints)
