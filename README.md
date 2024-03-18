@@ -22,14 +22,14 @@ Untuk menjalankan program ini, lakukan langkah-langkah sebagai berikut:
    ```
 3. Jalankan program utama dengan membuka file "main.py" dan ketik perintah berikut dalam command line:
    ```shell
-   python3 -u main.py
+   python main.py
    ```
 4. Untuk membandingkan algoritma Divide and Conquer dengan algoritma Brute Force, cukup jalankan perintah berikut ke dalam command line pada folder src:
    ```shell
-   python3 -u test.py
+   python test.py
    ```
 
-## identitas Pembuat
+## Identitas Pembuat
 
 1. Juan Alfred Widjaya / 13522073 (https://github.com/juanaw6)
 2. Ivan Hendrawan Tan / 13522111 (https://github.com/Bodleh)

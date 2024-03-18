@@ -7,7 +7,7 @@ def bezier_divide_and_conquer(
     control_points: List[Tuple[int, int]], 
     iterations: int
 ) -> List[Tuple[int, int]]:
-    if (iterations == 0):
+    if iterations == 0:
         return [control_points[0], control_points[-1]]
     else:
         first_half = [control_points[0]]
