@@ -18,10 +18,6 @@ for i in range(n):
     control_points.append((x, y))
 iterations = valid_int_input(Fore.WHITE + "\nNumber of iterations (>=1): ", has_limit=True, lower_limit=1)
 
-# # Without user input
-# control_points = [(0, 0), (100, 200), (300, 300), (500, 0), (300, -300), (-100, -200), (-200, 100)]
-# iterations = 4
-
 start = time.time()
 curve_points, midpoints = bezier_divide_and_conquer_animate(control_points=control_points, iterations=iterations)
 end = (time.time() - start) * 1000  # milliseconds
