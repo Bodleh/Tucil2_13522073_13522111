@@ -60,8 +60,9 @@ def de_casteljau(points: List[Tuple[int, int]], t: float) -> Tuple[int, int]:
             new_points.append(new_point)
         return de_casteljau(new_points, t)
 
-def bezier_bruteforce(control_points: List[Tuple[int, int]], num_points: int) -> List[Tuple[int, int]]:
+def bezier_bruteforce(control_points: List[Tuple[int, int]], iterations: int) -> List[Tuple[int, int]]:
     curve_points = []
+    num_points = 2 ** iterations + 1
     for i in range(num_points):
         t = i / (num_points - 1)
         curve_points.append(de_casteljau(control_points, t))

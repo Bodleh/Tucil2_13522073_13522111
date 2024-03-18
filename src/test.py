@@ -24,7 +24,6 @@ for test_num, (control_points, iterations) in enumerate(tests, start=1):
     print(f"Control Points: {control_points}")
     print(f"Midpoint DnC Iterations: {iterations}")
 
-    num_points = 2 ** iterations + 1
 
     # Divide and Conquer
     start = time.time()
@@ -34,7 +33,7 @@ for test_num, (control_points, iterations) in enumerate(tests, start=1):
 
     # Bruteforce
     start = time.time()
-    curve_bf = bezier_bruteforce(control_points=control_points, num_points=num_points)
+    curve_bf = bezier_bruteforce(control_points=control_points, iterations=iterations)
     end_bf = time.time() - start
     print(f"Bruteforce time: {end_bf * 1000:.2f}ms")
 
